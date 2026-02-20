@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+  min-height: 100vh;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.app-container {
+  padding: 40px;
+  max-width: 600px;
+  margin: auto;
+}
