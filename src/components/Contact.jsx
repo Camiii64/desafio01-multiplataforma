@@ -1,16 +1,8 @@
-import "./Contact.css";
-
-export const Contact = ({ contact, onDelete, onToggleFavorite }) => {
+export const Contact = ({ contact, onRequestDelete, onToggleFavorite }) => {
   const { id, nombre, apellido, telefono, favorito } = contact;
 
   const handleDelete = () => {
-    const confirmar = window.confirm(
-      `¿Seguro que deseas eliminar a ${nombre} ${apellido}?`
-    );
-
-    if (confirmar) {
-      onDelete(id);
-    }
+    onRequestDelete(contact);
   };
 
   const handleToggleFavorite = () => {
@@ -20,9 +12,7 @@ export const Contact = ({ contact, onDelete, onToggleFavorite }) => {
   return (
     <div className={`contact-card ${favorito ? "favorite" : ""}`}>
       <div className="contact-info">
-        <h3>
-          {nombre} {apellido}
-        </h3>
+        <h3>{nombre} {apellido}</h3>
         <p>📞 {telefono}</p>
       </div>
 
@@ -30,7 +20,6 @@ export const Contact = ({ contact, onDelete, onToggleFavorite }) => {
         <button className="favorite-btn" onClick={handleToggleFavorite}>
           {favorito ? "⭐" : "☆"}
         </button>
-
         <button className="delete-btn" onClick={handleDelete}>
           Eliminar
         </button>
